@@ -1,0 +1,12 @@
+<div class='container w-50'>
+  <%= simple_form_for (@restaurants) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <%=f.input :name%>
+    <%=f.input :address%>
+    <%=f.input :category, collection: restaurant::CATEGORY %>
+    <div class='input-bmo'>
+    <%= f.submit %>
+  <% end %>
+</div>
